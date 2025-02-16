@@ -3,7 +3,6 @@ package com.example.VirtualClassRoom.service;
 import com.example.VirtualClassRoom.DAO.ClassRoomDAO;
 import com.example.VirtualClassRoom.dto.ClassRoomDTO;
 import com.example.VirtualClassRoom.dto.ClassRoomRegistrationDTO;
-import com.example.VirtualClassRoom.dto.UserDTO;
 import com.example.VirtualClassRoom.genericDatatypes.ApiResponse;
 import com.example.VirtualClassRoom.genericDatatypes.ServiceResponse;
 import com.example.VirtualClassRoom.interfaces.IServiceResponse;
@@ -11,12 +10,9 @@ import com.example.VirtualClassRoom.models.ClassRoom;
 import com.example.VirtualClassRoom.models.User;
 import com.example.VirtualClassRoom.repository.ClassRoomRepository;
 import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
