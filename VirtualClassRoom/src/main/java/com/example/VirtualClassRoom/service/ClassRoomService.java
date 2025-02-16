@@ -116,6 +116,13 @@ public class ClassRoomService implements IServiceResponse {
         return classRoom.isPresent();
     }
 
+    protected ClassRoom getFullClassRoomReference(UUID classRoomID) throws Exception {
+        //  call this only if the classroom with the ID exists.
+        var classRoom = classRoomDAO.getClassRoomForClassRoomID(classRoomID);
+        if(classRoom.getException() != null) throw classRoom.getException();
+        return classRoom.getServiceData();
+    }
+
     protected ClassRoom createEntityFromDTO(ClassRoomDTO classRoomDTO){
         if(classRoomDTO == null) return  null;
         ClassRoom classRoom = new ClassRoom();

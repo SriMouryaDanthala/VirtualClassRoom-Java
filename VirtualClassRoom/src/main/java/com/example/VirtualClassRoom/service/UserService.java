@@ -82,6 +82,16 @@ public class UserService implements IServiceResponse, IConverters<User,UserDTO> 
         return false;
     }
 
+    protected User getFullUserReference(UUID userID) throws Exception {
+        // call this method only when the userID is present.
+        var resp = userDAO.getUserByUserID(userID);
+        if(resp.getException() != null){
+            throw resp.getException();
+        }
+        return resp.getServiceData();
+
+    }
+
 
 
 }
