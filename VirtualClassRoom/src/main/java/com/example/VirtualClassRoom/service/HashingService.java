@@ -1,10 +1,14 @@
 package com.example.VirtualClassRoom.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-class HashingService {
+@Component
+public class HashingService implements PasswordEncoder {
     public String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return secureHashString(input);
     }
@@ -34,5 +38,25 @@ class HashingService {
             hexStr +=  Integer.toString( ( digest[i] & 0xff ) + 0x100, 16).substring( 1 );
         }
         return hexStr;
+    }
+
+    @Override
+    public String encode(CharSequence rawPassword) {
+        try {
+            return makeSHA1Hash(rawPassword.toString());
+        }
+        catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean matches(CharSequence rawPassword, String encodedPassword) {
+        try {
+            return makeSHA1Hash(rawPassword.toString()).equals(encodedPassword);
+        }
+        catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

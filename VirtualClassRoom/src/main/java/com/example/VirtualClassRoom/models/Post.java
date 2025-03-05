@@ -1,6 +1,8 @@
 package com.example.VirtualClassRoom.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -18,6 +20,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_user_id", referencedColumnName = "User_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     User postUser;
 
     String postContent;

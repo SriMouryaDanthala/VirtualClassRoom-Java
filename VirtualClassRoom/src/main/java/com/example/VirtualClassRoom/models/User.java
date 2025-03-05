@@ -12,19 +12,28 @@ public class User {
     @Id
     @Column(name = "User_id")
     private UUID userId;
+
     @Column(name = "User_username")
     private String userName;
+
     @Column(name = "User_first_name")
     private String userFirstName;
+
     @Column(name = "User_last_name")
     private String userLastName;
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "User_role_id",referencedColumnName = "Role_id")
     private UserRole userRole;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "User_credentials_id", referencedColumnName = "Credentials_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Credentials credentials;
+
+    @OneToMany(mappedBy = "classRoomIncharge", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<ClassRoom> classRooms = new ArrayList<>();
 
     public User() { }
 

@@ -3,16 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample</title>
+    <title>User Authentication</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1> This is Head Tag</h1>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-    eserunt blanditiis voluptatem quas. Placeat provident iusto explicabo,.<br>
-    ab consequatur, molestiae minus totam ipsum, tenetur hic vitae aperiam dolores impedit .<br>
-    reiciendis ratione voluptate ipsam quisquam. Ipsam ab praesentium rem magni, nisi ad aliquam possimus .<br>
-    alias aperiam vel officia, maiores animi dignissimos laudantium?.<br>
-</p>
+<div class="container mt-5">
+    <div id="loginSection">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">User Login</div>
+                    <div class="card-body">
+                        <form id="loginForm">
+                            <input type="text" class="form-control mb-2" placeholder="Username" id="username" required>
+                            <input type="password" class="form-control mb-2" placeholder="Password" id="password" required>
+                            <button type="submit" class="btn btn-success w-100">Login</button>
+                        </form>
+                        <div class="nav-link" onclick="showRegister()">Don't have an account? Register</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerSection" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">User Registration</div>
+                    <div class="card-body">
+                        <form id="registerForm">
+                            <input type="text" class="form-control mb-2" placeholder="First Name" id="UserFirstName" required>
+                            <input type="text" class="form-control mb-2" placeholder="Last Name" id="UserLastName" required>
+                            <input type="text" class="form-control mb-2" placeholder="Username" id="UserName" required>
+                            <input type="password" class="form-control mb-2" placeholder="Password" id="UserPassword" required>
+                            <input type="text" class="form-control mb-2" placeholder="Role ID" id="UserRole" required>
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                        </form>
+                        <div class="nav-link" onclick="showLogin()">Already have an account? Login</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JWT Token Popup -->
+<div id="tokenModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h5>JWT Token</h5>
+        <pre id="jwtToken"></pre>
+    </div>
+</div>
+
+<!-- Registration Response Popup -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeRegisterModal()">&times;</span>
+        <h5>Registration Response</h5>
+        <pre id="registerResponse"></pre>
+    </div>
+</div>
+
+<script src="/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

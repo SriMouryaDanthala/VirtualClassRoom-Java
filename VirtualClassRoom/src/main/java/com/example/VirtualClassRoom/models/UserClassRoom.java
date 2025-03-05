@@ -1,6 +1,8 @@
 package com.example.VirtualClassRoom.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.UUID;
 
@@ -35,9 +37,11 @@ public class UserClassRoom {
     private UUID UserClassRoomJoinID;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "User_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "classroom_id", referencedColumnName = "Classroom_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private ClassRoom classRoom;
 }

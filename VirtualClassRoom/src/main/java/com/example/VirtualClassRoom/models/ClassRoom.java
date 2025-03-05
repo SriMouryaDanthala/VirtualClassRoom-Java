@@ -1,6 +1,8 @@
 package com.example.VirtualClassRoom.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -10,13 +12,18 @@ public class ClassRoom {
     @Id
     @Column(name = "Classroom_id")
     public UUID classRoomId;
+
     @Column(name = "Classroom_name")
     public String classRoomName;
+
     @Column(name = "Classroom_description")
     public String classRoomDescription;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "classroom_incharge_id", referencedColumnName = "User_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     public User classRoomIncharge;
+
     @Column(name = "Classroom_created_time")
     public LocalDateTime classRoomCreatedTime;
 

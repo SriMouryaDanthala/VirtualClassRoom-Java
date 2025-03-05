@@ -51,9 +51,9 @@ public class Credentials {
         this.createdTime = createdTime;
     }
 
-//    public String getPassword() {
-//        return password;
-//    }
+    public String getPassword() {
+        return password;
+    }
 
     public void setPassword(String password) {
         this.password = password;
