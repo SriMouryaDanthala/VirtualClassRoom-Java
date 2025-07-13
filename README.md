@@ -11,5 +11,6 @@
 - in the properties file change the `spring.datasource.url` to `jdbc:postgresql://localhost:[port of your postgresql, generally it is 5432]/{Database Name}`
 - also change `spring.datasource.username` and `spring.datasource.password` corresponding to your PostgreSQL setup.
 - now go ahead and run the project, this should spin up tomcat and the Application will be available at port `8080` of your local host.
-- navigate to your browser and go to the following address `http://localhost:8080/`, now should be able to see a HTML page with lorem ipsum, your api is now ready to use.
+- navigate to your browser and go to the following address `http://localhost:8080/`, now should be able to see a login page.
+- Login to get a JWT token / register to create a new account.
 - open postman and test the end points.
