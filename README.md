@@ -13,4 +13,5 @@
 - now go ahead and run the project, this should spin up tomcat and the Application will be available at port `8080` of your local host.
 - navigate to your browser and go to the following address `http://localhost:8080/`, now should be able to see a login page.
 - Login to get a JWT token / register to create a new account.
+- Use Bearer <JWT_TOKEN> in the authorization header.
 - open postman and test the end points.
